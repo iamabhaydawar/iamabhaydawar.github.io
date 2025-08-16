@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhay Dawar | Data Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700&family=Comfortaa:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a; 
+            --text-color: #d4d4d4; 
+            --accent-color: #fb7185cc; 
+            --secondary-accent: #4ade80; 
+            --border-color: #404040; 
+            --hover-color: #a1a1a1; 
+            --prompt-color: #fb7185; 
+            --title-color: #fb7185; 
+            --bullet-color: #fb7185; 
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inconsolata', monospace; 
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding: 2.5rem 1.25rem; 
+        }
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            max-width: 60rem; 
+            width: 100%;
+            margin: 0 auto; 
+        }
+        .nav {
+            display: flex;
+            flex-direction: row; 
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            width: 100%; 
+        }
+        .nav a {
+            margin: 0.25rem 0.5; 
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 6px 12px;
+            border-radius: 9999px; 
+            border: 1px solid transparent; 
+            cursor: pointer;
+            transition: all 0.5s ease-in-out; 
+        }
+        .nav a:hover {
+            color: var(--hover-color);
+            border-color: var(--border-color); 
+            transform: scale(1.05); 
+        }
+        .nav a.active {
+            color: var(--accent-color);
+            font-weight: bold;
+            background-color: transparent;
+            border-color: var(--accent-color); 
+        }
+        .nav a.active:hover {
+            color: var(--hover-color);
+            border-color: var(--hover-color);
+        }
+        .terminal-prompt {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            width: 100%; 
+        }
+        .prompt-user {
+            color: var(--secondary-accent);
+        }
+        .prompt-symbol {
+            color: var(--prompt-color);
+            margin-right: 5px;
+        }
+        .section {
+            margin-bottom: 40px;
+            display: none;
+            width: 100%; 
+        }
+        .section.active {
+            display: block;
+        }
+        .section-title {
+            font-size: 1.5rem; 
+            color: var(--title-color); 
+            font-weight: 300; 
+            padding-top: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px dotted rgba(251, 113, 133, 0.3); 
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            cursor: default;
+        }
+        .section-title .prompt {
+            font-size: 1em; 
+        }
+        .sub-section-title {
+            color: var(--accent-color); 
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+        .content-box {
+            background-color: rgba(0, 0, 0, 0.1); 
+            border: 1px solid var(--border-color);
+            border-radius: 8px; 
+            padding: 20px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease; 
+            box-shadow: 0 0 10px rgba(0, 216, 255, 0.1); 
+        }
+        .content-box:hover {
+            transform: translateY(-3px); 
+            box-shadow: 0 3px 15px rgba(0, 216, 255, 0.3); 
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            background-color: transparent;
+            border: none; 
+            padding: 25px 0; 
+            box-shadow: none;
+        }
+        .profile-img {
+            width: 8rem; 
+            height: 8rem;
+            border-radius: 9999px;
+            margin-right: 30px;
+            margin-bottom: 15px;
+            background:  #0a0a0a; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; 
+            font-size: 2rem; 
+            font-weight: bold;
+            flex-shrink: 0;
+            border: none; 
+        }
+        .profile-info p {
+            margin: 6px 0;
+            color: var(--text-color);
+            font-size: 0.95em;
+        }
+        .profile-info .data-item::before {
+            content: "[";
+            color: var(--secondary-accent);
+            margin-right: 4px;
+        }
+        .profile-info .data-item::after {
+            content: "]";
+            color: var(--secondary-accent);
+            margin-left: 4px;
+        }
+        .profile-info .data-item .item-name {
+            color: var(--accent-color); 
+            margin: 0 5px;
+        }
+        .profile-info h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--title-color);
+        }
+        .highlight { 
+            color: var(--secondary-accent); 
+            font-weight: bold;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-tag {
+            color:  #d4d4d4; 
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.85em;
+            border: 1px solid rgba(251, 113, 133, 0.3); 
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+        .skill-tag:hover {
+            background-color: rgba(251, 113, 133, 0.2);
+            color: var(--hover-color);
+            border-color: var(--accent-color);
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; 
+        }
+        .card {
+            background-color: rgba(0, 0, 0, 0.1); 
+            border: 1px solid var(--border-color);
+            border-radius: 8px; 
+            padding: 1rem; 
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 180px;
+            box-shadow: 0 0 10px rgba(0, 216, 255, 0.1); 
+        }
+        .card:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 5px 20px rgba(0, 216, 255, 0.4); 
+        }
+        .card-title {
+            color: var(--title-color); 
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.25rem; 
+            font-weight: 600; 
+        }
+        .card-desc {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            flex-grow: 1;
+            font-size: 0.9em;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+        .project-tag {
+            background-color: rgba(251, 113, 133, 0.1); 
+            color: var(--accent-color); 
+            border: 1px solid rgba(251, 113, 133, 0.3); 
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+        .project-tag:hover {
+            background-color: rgba(251, 113, 133, 0.2);
+            color: var(--hover-color);
+            border-color: var(--accent-color);
+        }
+        .link-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: var(--text-color);
+            opacity: 0.8; 
+            transition: color 0.3s ease, opacity 0.3s ease;
+            font-size: 0.9em;
+            text-decoration: none;
+            padding: 0.5rem; 
+            border-radius: 9999px; 
+            border: 1px solid transparent; 
+        }
+        .card:hover .link-icon {
+            color: var(--hover-color); 
+            opacity: 1;
+            border-color: var(--border-color); 
+        }
+        .typing-animation {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 3px solid var(--accent-color); 
+            white-space: nowrap;
+            margin: 0;
+            letter-spacing: 0.1em;
+            animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+            color: var(--title-color);
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .typing-animation .highlight { 
+            color: var(--accent-color); 
+            font-weight: bold;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent-color) } 
+        }
+        .terminal-line {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeInLine 0.5s forwards;
+            color: var(--text-color);
+            font-size: 0.95em;
+        }
+        .terminal-line::before {
+            content: " > "; 
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--secondary-accent); 
+            font-weight: bold;
+        }
+        @keyframes fadeInLine {
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .footer {
+            border-top: 1px solid var(--border-color);
+            height: 1px;
+            width: 100%;
+            margin-top: -1rem;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            color: var(--text-color);
+            font-size: 0.875rem;
+            flex-direction: column; 
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .footer-content .highlight { 
+            color: var(--secondary-accent); 
+        }
+        .clock {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        .project-description {
+            padding: 0.75rem;
+            color: var(--text-color);
+            border: 1px solid rgba(251, 113, 133, 0.4); 
+            margin-top: 0.5rem;
+            display: none;
+            background-color: rgba(251, 113, 133, 0.05); 
+            border-radius: 4px;
+        }
+        .project-description.open {
+            display: block;
+        }
+        .chevron {
+            font-size: 1.5rem; 
+            cursor: pointer;
+            color: var(--prompt-color); 
+            transition: transform 0.3s ease;
+            margin-left: auto; 
+        }
+        .chevron.open {
+            transform: rotate(90deg);
+        }
+        .boot-sequence {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 9999;
+            font-family: 'Inconsolata', monospace; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: 10%;
+            opacity: 1;
+            transition: opacity 0.5s ease-out 0.5s;
+        }
+        .boot-sequence div {
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeInLine 0.4s forwards;
+        }
+        .boot-sequence .ok {
+            color: var(--secondary-accent);
+            margin-left: 10px;
+        }
+        .boot-sequence .welcome {
+            color: var(--title-color);
+            font-weight: bold;
+        }
+        @media (min-width: 640px) {
+            .nav {
+                flex-direction: row;
+            }
+            .nav a {
+                margin: 0 10px; 
+            }
+            .profile {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+                padding: 25px; 
+            }
+            .profile-img {
+                margin-right: 30px;
+                margin-bottom: 0;
+            }
+            .typing-animation {
+                font-size: 1.8em; 
+                white-space: nowrap;
+                border-right: 3px solid var(--accent-color);
+                animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+                width: 100%; 
+                text-align: left;
+                display: inline-block;
+            }
+            .footer-content {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            .profile {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .profile-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .typing-animation {
+                font-size: 1.3em;
+                white-space: normal;
+                border-right: none;
+                animation: none;
+                width: auto;
+                text-align: center;
+                display: block;
+            }
+            .nav {
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            .nav a {
+                margin: 0.25rem 0.5rem;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 0 5px;
+            }
+            .profile-img {
+                width: 100px;
+                height: 100px;
+                font-size: 20px;
+            }
+            .typing-animation {
+                font-size: 1.2em;
+            }
+            .content-box, .profile, .card {
+                padding: 15px;
+            }
+            .section-title {
+                font-size: 1.2em;
+            }
+            .sub-section-title {
+                font-size: 1.0em;
+            }
+            .boot-sequence {
+                padding-left: 5%;
+            }
+        }
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #d4d4d4;
+            --accent-color: #fb7185cc;
+            --secondary-accent: #4ade80;
+            --border-color: #404040;
+            --hover-color: #a1a1a1;
+            --prompt-color: #fb7185;
+            --title-color: #fb7185;
+            --bullet-color: #fb7185;
+            --card-bg: #1a1a1a;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inconsolata', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding: 2.5rem 1.25rem;
+        }
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            max-width: 60rem;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .nav {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            width: 100%;
+        }
+        .nav a {
+            margin: 0.25rem 0.5rem;
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 6px 12px;
+            border-radius: 9999px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .nav a:hover {
+            color: var(--hover-color);
+            border-color: var(--border-color);
+            transform: scale(1.05);
+        }
+        .nav a.active {
+            color: var(--accent-color);
+            font-weight: bold;
+            background-color: transparent;
+            border-color: var(--accent-color);
+        }
+        .terminal-prompt {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        .prompt-user {
+            color: var(--secondary-accent);
+        }
+        .prompt-symbol {
+            color: var(--prompt-color);
+            margin-right: 5px;
+        }
+        .section {
+            margin-bottom: 40px;
+            display: none;
+            width: 100%;
+        }
+        .section.active {
+            display: block;
+        }
+        .content-box {
+            background-color: rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        .profile {
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 30px;
+            padding: 1rem 0;
+        }
+        .profile-main {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem; 
+            flex: 1 1 350px; 
+        }
+        .profile-img {
+            width: 8rem;
+            height: 12rem;
+            border-radius: 9999px;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid #4ade80;;
+            padding: 1rem;
+        }
+        .profile-info {
+            flex-grow: 1;
+        }
+        .profile-info p {
+            margin: 4px 0; 
+            color: var(--text-color);
+            font-size: 0.9em; 
+        }
+        .profile-info .data-item::before {
+            content: "[";
+            color: var(--secondary-accent);
+            margin-right: 4px;
+        }
+        .profile-info .data-item::after {
+            content: "]";
+            color: var(--secondary-accent);
+            margin-left: 4px;
+        }
+        .profile-info .data-item .item-name {
+            color: var(--accent-color);
+            margin: 0 5px;
+        }
+        .profile-info h2 {
+            margin-top: 0;
+            margin-bottom: 10px; 
+            color: var(--title-color);
+        }
+        .highlight {
+            color: var(--secondary-accent);
+            font-weight: bold;
+        }
+        .typing-animation {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 3px solid var(--accent-color);
+            white-space: nowrap;
+            margin: 0;
+            letter-spacing: 0.1em;
+            animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+            color: var(--title-color);
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent-color) }
+        }
+        .stats-box {
+            flex: 0 0 380px; 
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        .stats-box h3 {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .stats-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .stats-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+        }
+        .stats-list li:last-child {
+            margin-bottom: 0;
+        }
+        .stats-list svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.75rem;
+            color: var(--hover-color);
+            flex-shrink: 0;
+        }
+        .stats-list .stat-label {
+            color: var(--text-color);
+            margin-right: auto; 
+        }
+        .stats-list .stat-value {
+            color: var(--secondary-accent);
+            font-weight: 600;
+            text-align: right;
+        }
+        .stats-list .stat-value a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .stats-list .stat-value a:hover {
+            color: var(--accent-color);
+        }
+        .terminal-line {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeInLine 0.5s forwards;
+            color: var(--text-color);
+            font-size: 0.95em;
+        }
+        .terminal-line::before {
+            content: " > ";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--secondary-accent);
+            font-weight: bold;
+        }
+        @keyframes fadeInLine {
+            to { opacity: 1; }
+        }
+        .boot-sequence {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--bg-color); color: var(--text-color);
+            padding: 20px; box-sizing: border-box; z-index: 9999;
+            font-family: 'Inconsolata', monospace; display: flex; flex-direction: column;
+            justify-content: center; align-items: flex-start; padding-left: 10%;
+            opacity: 1; transition: opacity 0.5s ease-out 0.5s;
+        }
+        .boot-sequence div {
+            margin-bottom: 10px; opacity: 0; animation: fadeInLine 0.4s forwards;
+        }
+        .boot-sequence .ok {
+            color: var(--secondary-accent); margin-left: 10px;
+        }
+        .boot-sequence .welcome {
+            color: var(--title-color); font-weight: bold;
+        }
+        @media (max-width: 920px) {
+            .profile {
+                justify-content: center;
+                gap: 1rem;
+            }
+            .profile-main {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            .stats-box {
+                flex-basis: 100%; 
+                margin-top: 1rem;
+            }
+        }
+        @media (min-width: 640px) {
+            .typing-animation {
+                font-size: 1.8em;
+            }
+        }
+        @media (max-width: 768px) {
+            .typing-animation {
+                font-size: 1.3em;
+                white-space: normal;
+                border-right: none;
+                animation: none;
+                width: auto;
+                text-align: center;
+                display: block;
+            }
+        }
+        @media (max-width: 480px) {
+             body { padding: 10px; }
+            .container { padding: 0 5px; }
+            .profile-img { width: 8rem; height: 12rem;}
+            .typing-animation { font-size: 1.2em; }
+            .content-box, .profile, .card, .stats-box { padding: 15px; }
+            .boot-sequence { padding-left: 5%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="boot-sequence" id="boot-sequence">
+        <div>Initializing system...</div>
+    </div>
+    <div class="container">
+        <div class="nav">
+            <span class="prompt-user">abhay@portfolio</span><span class="prompt-symbol">:$ ~ </span>
+            <a href="#home" class="nav-link active" data-section="home">cd ~</a>
+            <a href="#expertise" class="nav-link" data-section="expertise">ls ./expertise</a>
+            <a href="#projects" class="nav-link" data-section="projects">ls ./projects</a>
+            <a href="#contributions" class="nav-link" data-section="contributions">ls ./contributions</a>
+        </div>
+        <div id="home" class="section active">
+            <div class="profile">
+                <div class="profile-main">
+                    <div class="profile-img">
+                        <img src="tony.jpeg" alt="Tony Stark" style="width: 100%; height: 100%; object-fit: cover; border-radius: 9999px;">
+                    </div>
+                    <div class="profile-info">
+                        <h2 class="typing-animation">Hi, I'm <span class="highlight">Abhay Dawar</span></h2>
+                        <p class="data-item">Role:<span class="item-name">Data Engineer</span></p>
+                        <p class="data-item">Focus:<span class="item-name">Cloud Architecture</span></p>
+                        <p class="data-item">Tools:<span class="item-name">Spark, Airflow, SQL</span></p>
+                        <p class="data-item">Passion:<span class="item-name">Big Data & Pipelines</span></p>
+                    </div>
+                </div>
+                <div class="stats-box">
+                    <ul class="stats-list">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                            <span class="stat-label">GitHub</span>
+                            <span class="stat-value"><a href="https://github.com/iamabhaydawar" target="_blank">github.io/ </a></span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            <span class="stat-label">LinkedIn</span>
+                            <span class="stat-value"><a href="https://linkedin.com/in/iamabhaydawar" target="_blank">iamabhaydawar</a></span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                            <span class="stat-label">X</span>
+                            <span class="stat-value"><a href="https://x.com/iamabhaydawar" target="_blank">@iamabhaydawar</a></span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <span class="stat-label">Local Time</span>
+                            <span id="clock" class="stat-value">--:--:--</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span class="stat-label">Location</span>
+                            <span class="stat-value">Vancouver, Canada</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="terminal-prompt">
+                <span class="prompt-user">abhay@portfolio</span><span class="prompt-symbol">:$ ~ </span><span class="prompt-command">cat /etc/motd</span>
+            </div>
+            <div class="content-box">
+                <div id="home-about">
+                </div>
+            </div>
+        </div>
+        <div id="expertise" class="section">
+            <div class="terminal-prompt">
+                <span class="prompt-user">abhay@portfolio</span><span class="prompt-symbol">:$ ~ </span><span class="prompt-command">./show_stack.sh --verbose</span>
+            </div>
+            <div class="section-title">Expertise</div>
+            <div class="content-box">
+                <h3 class="sub-section-title"><span class="prompt-symbol">></span> [Languages]</h3>
+                <div class="skills">
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">SQL</div>
+                    <div class="skill-tag">Scala</div>
+                    <div class="skill-tag">Java</div>
+                    <div class="skill-tag">Bash</div>
+                </div>
+            </div>
+            <div class="content-box">
+                <h3 class="sub-section-title"><span class="prompt-symbol">></span> [Big Data & Streaming]</h3>
+                <div class="skills">
+                    <div class="skill-tag">Apache Spark</div>
+                    <div class="skill-tag">Apache Kafka</div>
+                    <div class="skill-tag">Hadoop Ecosystem</div>
+                    <div class="skill-tag">Apache Flink</div>
+                    <div class="skill-tag">Databricks</div>
+                </div>
+            </div>
+            <div class="content-box">
+                <h3 class="sub-section-title"><span class="prompt-symbol">></span> [Databases & Warehouses]</h3>
+                <div class="skills">
+                    <div class="skill-tag">PostgreSQL</div>
+                    <div class="skill-tag">MySQL</div>
+                    <div class="skill-tag">Snowflake</div>
+                    <div class="skill-tag">AWS Redshift</div>
+                    <div class="skill-tag">Google BigQuery</div>
+                    <div class="skill-tag">NoSQL (DynamoDB, Cassandra)</div>
+                </div>
+            </div>
+            <div class="content-box">
+                <h3 class="sub-section-title"><span class="prompt-symbol">></span> [Cloud Platforms]</h3>
+                <div class="skills">
+                    <div class="skill-tag">AWS</div>
+                    <div class="skill-tag">Azure</div>
+                    <div class="skill-tag">GCP</div>
+                </div>
+            </div>
+            <div class="content-box">
+                <h3 class="sub-section-title"><span class="prompt-symbol">></span> [Tools & Orchestration]</h3>
+                <div class="skills">
+                    <div class="skill-tag">Apache Airflow</div>
+                    <div class="skill-tag">Docker</div>
+                    <div class="skill-tag">Kubernetes</div>
+                    <div class="skill-tag">Terraform</div>
+                    <div class="skill-tag">Git / GitHub Actions</div>
+                    <div class="skill-tag">CI/CD</div>
+                </div>
+            </div>
+            <div class="content-box">
+                <h3 class="sub-section-title"><span class="prompt-symbol">></span> [Data Visualization]</h3>
+                <div class="skills">
+                    <div class="skill-tag">Tableau</div>
+                    <div class="skill-tag">Power BI</div>
+                    <div class="skill-tag">Looker</div>
+                    <div class="skill-tag">Matplotlib/Seaborn</div>
+                </div>
+            </div>
+        </div>
+        <div id="projects" class="section">
+            <div class="terminal-prompt">
+                <span class="prompt-user">abhay@portfolio</span><span class="prompt-symbol">:$ ~ </span><span class="prompt-command">ls -l /var/log/projects/</span>
+            </div>
+            <div class="section-title">Projects</div>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(0)">
+                        <h3 class="card-title">// Real-Time Analytics Platform</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Project (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(0)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-0">
+                        Developed a scalable streaming pipeline using Kafka, Spark Streaming, and Druid to ingest and analyze clickstream data, providing dashboards with sub-second latency.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Kafka</span>
+                        <span class="project-tag">Spark Streaming</span>
+                        <span class="project-tag">Druid</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">AWS</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(1)">
+                        <h3 class="card-title">// Cloud Data Warehouse Migration</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Project (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(1)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-1">
+                        Led the migration of an on-premise data warehouse to Snowflake, designing new schemas, optimizing ETL jobs (using Airflow & dbt), and reducing query times by 60%.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Snowflake</span>
+                        <span class="project-tag">Airflow</span>
+                        <span class="project-tag">dbt</span>
+                        <span class="project-tag">SQL</span>
+                        <span class="project-tag">Data Modeling</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(2)">
+                        <h3 class="card-title">// Batch Processing Framework</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Project (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(2)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-2">
+                        Built a robust batch data processing framework on AWS using S3 Data Lake, PySpark on EMR, and Airflow for orchestration, handling terabytes of daily data.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">PySpark</span>
+                        <span class="project-tag">AWS EMR</span>
+                        <span class="project-tag">S3</span>
+                        <span class="project-tag">Airflow</span>
+                        <span class="project-tag">Scala</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(3)">
+                        <h3 class="card-title">// Data Quality Monitoring System</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Project (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(3)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-3">
+                        Implemented an automated data quality monitoring system using Great Expectations integrated with Airflow DAGs to validate data pipelines and alert on anomalies.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Data Quality</span>
+                        <span class="project-tag">Great Expectations</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Airflow</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="contributions" class="section">
+            <div class="terminal-prompt">
+                <span class="prompt-user">abhay@portfolio</span><span class="prompt-symbol">:$ ~ </span><span class="prompt-command">git log --author="Abhay"</span>
+            </div>
+            <div class="section-title">Contributions</div>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(4)">
+                        <h3 class="card-title">// Apache Airflow Provider Enhancement</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Contribution (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(4)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-4">
+                        Contributed code to enhance the AWS provider for Apache Airflow, adding new operators and improving existing sensor logic. Merged into main branch (v2.x).
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Open Source</span>
+                        <span class="project-tag">Airflow</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">AWS</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(5)">
+                        <h3 class="card-title">// Blog Series: Optimizing Spark Jobs</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Contribution (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(5)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-5">
+                        Authored a 5-part blog series detailing techniques for performance tuning Apache Spark applications, covering partitioning, caching, and memory management.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Writing</span>
+                        <span class="project-tag">Spark</span>
+                        <span class="project-tag">Tuning</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(6)">
+                        <h3 class="card-title">// Talk: Modern Data Lake Architectures</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Contribution (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(6)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-6">
+                        Presented at Local Data Meetup (2024). Discussed modern data lake design patterns, comparing Delta Lake, Iceberg, and Hudi, and their integration with cloud services.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Speaking</span>
+                        <span class="project-tag">Data Lake</span>
+                        <span class="project-tag">Architecture</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer"></div>
+        <div class="footer-content">
+            <span><span class="highlight">// process complete</span> - crafted by Abhay</span>
+            <div class="clock">
+                <span id="currentTime"></span>
+                <span id="currentLocation"></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select necessary elements
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            const bootSequence = document.getElementById('boot-sequence');
+            const homeAboutContainer = document.getElementById('home-about');
+            // Content for the 'about' section terminal lines
+            const aboutLines = [
+                "building scalable data pipelines (TBs/day)",
+                "optimizing complex ETL/ELT workflows",
+                "designing cloud data warehouses (Snowflake, Redshift)",
+                "implementing data quality & monitoring",
+                "tech: Spark, Kafka, Airflow, AWS/Azure/GCP",
+                "langs: Python, SQL, Scala",
+                "focus: data modeling, architecture, automation"
+            ];
+            // Function to handle navigation between sections
+            function navigateToSection(sectionId) {
+                // Remove active state from all links and sections
+                navLinks.forEach(el => el.classList.remove('active'));
+                sections.forEach(section => {
+                    section.classList.remove('active', 'fade-in');
+                });
+                // Find the link and section corresponding to the sectionId
+                const link = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
+                const activeSection = document.getElementById(sectionId);
+                // If both link and section exist, activate them
+                if (link && activeSection) {
+                    link.classList.add('active');
+                    activeSection.classList.add('active');
+                    // Add fade-in effect after a short delay
+                    requestAnimationFrame(() => {
+                        setTimeout(() => {
+                            activeSection.classList.add('fade-in');
+                        }, 10); // Minimal delay
+                    });
+                    // Update browser history without reloading the page
+                    if (`#${sectionId}` !== window.location.hash) {
+                        history.pushState(null, null, `#${sectionId}`);
+                    }
+                    // If navigating to 'home', simulate the terminal lines in the 'about' section
+                    if (sectionId === 'home' && homeAboutContainer) {
+                        simulateTerminalLines(homeAboutContainer, aboutLines);
+                    }
+                } else {
+                    // Fallback to the 'home' section if the requested sectionId is invalid
+                    console.warn(`Section with id "${sectionId}" not found. Falling back to home.`);
+                    navigateToSection('home');
+                }
+            }
+            // Function to simulate the terminal line typing effect
+            function simulateTerminalLines(container, lines) {
+                // Ensure the container element exists
+                if (!container) {
+                    console.error("About section container not found for terminal simulation.");
+                    return;
+                }
+                // Clear any previous lines
+                container.innerHTML = '';
+                // Create and animate each line
+                lines.forEach((line, index) => {
+                    if (line === "...") {
+                        // Add a visual break for "..."
+                        const br = document.createElement('br');
+                        br.style.opacity = 0; // Start hidden
+                        br.style.animation = `fadeInLine 0.5s ${index * 80}ms forwards`; // Apply fade
+                        container.appendChild(br);
+                    } else {
+                        // Create a div for the line
+                        const div = document.createElement('div');
+                        div.classList.add('terminal-line');
+                        div.textContent = line; // Use textContent for security
+                        // Apply animation delay for staggered effect
+                        div.style.animationDelay = `${index * 80}ms`; // Slightly faster delay
+                        container.appendChild(div);
+                    }
+                });
+            }
+            // Add click event listeners to all navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default anchor link behavior
+                    const sectionToShow = this.getAttribute('data-section');
+                    navigateToSection(sectionToShow);
+                });
+            });
+            // Function to handle changes in the URL hash
+            function handleHashChange() {
+                const hash = window.location.hash.substring(1);
+                const sectionId = hash || 'home';
+                if (document.getElementById(sectionId)) {
+                    navigateToSection(sectionId);
+                } else {
+                    navigateToSection('home');
+                }
+            }
+            // Function to initialize the page, including the boot sequence
+            function initializePage() {
+                // Boot sequence messages
+                const bootMessages = [
+                    { text: "Loading modules...", status: "OK" },
+                    { text: "Connecting to network...", status: "OK" },
+                    { text: "Mounting file systems...", status: "OK" },
+                    { text: "Starting services...", status: "OK" },
+                    { text: "System ready. Welcome!", status: "WELCOME" } // Special status for styling
+                ];
+                let bootIndex = 0;
+                const initialLine = bootSequence ? bootSequence.firstElementChild : null;
+                if (!bootSequence || !initialLine) {
+                    console.error("Boot sequence element or initial line not found! Skipping animation.");
+                    handleHashChange();
+                    return;
+                }
+                // Clear initial content and re-add first line for animation control
+                const initialText = initialLine.textContent;
+                bootSequence.innerHTML = ''; // Clear static content
+                const firstLineDiv = document.createElement('div');
+                firstLineDiv.textContent = initialText;
+                firstLineDiv.style.opacity = '0'; // Start hidden
+                bootSequence.appendChild(firstLineDiv);
+                // Function to add next boot message with delay
+                function addBootMessage() {
+                    if (bootIndex < bootMessages.length) {
+                        const msgData = bootMessages[bootIndex];
+                        const msgDiv = document.createElement('div');
+                        msgDiv.textContent = msgData.text;
+                        // Add status span if applicable
+                        if (msgData.status === "OK") {
+                            const statusSpan = document.createElement('span');
+                            statusSpan.classList.add('ok');
+                            statusSpan.textContent = '[OK]';
+                            msgDiv.appendChild(statusSpan);
+                        } else if (msgData.status === "WELCOME") {
+                            msgDiv.classList.add('welcome'); // Add class for special styling
+                        }
+                        msgDiv.style.animationDelay = `${(bootIndex + 1) * 100}ms`; // Stagger animation (start after first line)
+                        bootSequence.appendChild(msgDiv);
+                        bootIndex++;
+                        setTimeout(addBootMessage, 150); // Time between adding each message element
+                    } else {
+                        // All messages added, wait then fade out
+                        setTimeout(() => {
+                            bootSequence.style.opacity = '0';
+                            setTimeout(() => {
+                                if (bootSequence.parentNode) {
+                                    bootSequence.parentNode.removeChild(bootSequence);
+                                }
+                                handleHashChange(); // Show content
+                            }, 600); // Match CSS transition duration + delay
+                        }, 700); // Delay before starting fade out
+                    }
+                }
+                // Start the first line animation, then the rest
+                firstLineDiv.style.animation = `fadeInLine 0.4s 50ms forwards`; // Animate first line
+                setTimeout(addBootMessage, 100); // Start adding subsequent messages
+            }
+            // Listen for hash changes
+            window.addEventListener('hashchange', handleHashChange);
+            // Start the initialization process
+            initializePage();
+            // Project Description Toggle Functionality (from Nisha's script)
+            function toggleDescription(index) {
+                const description = document.getElementById(`desc-${index}`);
+                // Find the chevron within the same card as the description
+                const card = description.closest('.card');
+                const chevron = card ? card.querySelector('.chevron') : null;
+                if (description && chevron) {
+                    description.classList.toggle('open');
+                    chevron.classList.toggle('open');
+                }
+            }
+            // Attach toggleDescription to the global scope or directly to elements
+            window.toggleDescription = toggleDescription;
+            // Clock functionality (from Nisha's script)
+            function updateClock() {
+                const now = new Date();
+                const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+                const currentTimeElement = document.getElementById('currentTime');
+                const currentLocationElement = document.getElementById('currentLocation');
+                if (currentTimeElement) {
+                    currentTimeElement.textContent = now.toLocaleTimeString('en-US', options);
+                }
+                if (currentLocationElement) {
+                    currentLocationElement.textContent = 'Vancouver, Canada'; // Hardcoded as per your instruction
+                }
+            }
+            // Set interval for clock and initial call
+            setInterval(updateClock, 1000);
+            updateClock();
+            // Add a container for social links in the home section and apply Nisha's social-link styling
+            // This needs to be done manually in the HTML structure to reuse the class
+            // I've added a new .social-links-container for better layout control
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Live Clock ---
+            const clockElement = document.getElementById('clock');
+            function updateClock() {
+                const now = new Date();
+                const options = {
+                    timeZone: 'America/Vancouver', // Vancouver timezone
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                };
+                const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
+                clockElement.textContent = timeString;
+            }
+            updateClock();
+            setInterval(updateClock, 1000);
+            // --- Navigation ---
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    sections.forEach(s => {
+                        s.classList.remove('active');
+                        if (s.id === sectionId) {
+                            s.classList.add('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
