@@ -1003,6 +1003,7 @@
             <a href="#home" class="nav-link active" data-section="home">cd ~</a>
             <a href="#expertise" class="nav-link" data-section="expertise">ls ./expertise</a>
             <a href="#projects" class="nav-link" data-section="projects">ls ./projects</a>
+            <a href="#blogs" class="nav-link" data-section="blogs">ls ./blogs</a>
             <a href="#contributions" class="nav-link" data-section="contributions">ls ./contributions</a>
         </div>
         <div id="home" class="section active">
@@ -1099,6 +1100,14 @@
                                     <polyline points="14,2 14,8 20,8"/>
                                 </svg>
                                 <span>ls ./docs</span>
+                            </a>
+                            
+                            <a href="#blogs" class="linux-nav-item" data-section="blogs">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                </svg>
+                                <span>ls ./blogs</span>
                             </a>
                             
                             <a href="https://github.com/iamabhaydawar" target="_blank" class="linux-nav-item" data-external="true">
@@ -1318,6 +1327,140 @@
                         <span class="project-tag">Great Expectations</span>
                         <span class="project-tag">Python</span>
                         <span class="project-tag">Airflow</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="blogs" class="section">
+            <div class="terminal-prompt">
+                <span class="prompt-user">abhay@portfolio</span><span class="prompt-symbol">:$ ~ </span><span class="prompt-command">find ./blogs -name "*.md" -type f</span>
+            </div>
+            <div class="section-title">Blogs</div>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(7)">
+                        <h3 class="card-title">// Optimizing Apache Spark Jobs: A Complete Guide</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(7)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-7">
+                        A comprehensive 5-part series covering advanced techniques for performance tuning Apache Spark applications, including partitioning strategies, memory management, and optimization best practices for production environments.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Apache Spark</span>
+                        <span class="project-tag">Performance</span>
+                        <span class="project-tag">Optimization</span>
+                        <span class="project-tag">Big Data</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(8)">
+                        <h3 class="card-title">// Building Modern Data Lakes with Delta Lake</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(8)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-8">
+                        Deep dive into implementing ACID transactions, time travel, and schema evolution using Delta Lake on AWS. Includes practical examples and performance comparisons with traditional data lake architectures.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Delta Lake</span>
+                        <span class="project-tag">Data Lake</span>
+                        <span class="project-tag">AWS</span>
+                        <span class="project-tag">ACID</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(9)">
+                        <h3 class="card-title">// Real-Time Streaming with Apache Kafka</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(9)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-9">
+                        Step-by-step guide to building scalable real-time data pipelines using Apache Kafka, including producer/consumer patterns, partitioning strategies, and monitoring best practices for high-throughput systems.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Apache Kafka</span>
+                        <span class="project-tag">Streaming</span>
+                        <span class="project-tag">Real-time</span>
+                        <span class="project-tag">Scalability</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(10)">
+                        <h3 class="card-title">// Data Quality at Scale with Great Expectations</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(10)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-10">
+                        Implementing automated data quality monitoring using Great Expectations framework, including custom expectation development, integration with Airflow DAGs, and alerting strategies for data anomalies.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Data Quality</span>
+                        <span class="project-tag">Great Expectations</span>
+                        <span class="project-tag">Monitoring</span>
+                        <span class="project-tag">Airflow</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(11)">
+                        <h3 class="card-title">// Cloud Data Warehouse Migration Strategies</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(11)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-11">
+                        Comprehensive guide to migrating from on-premise data warehouses to cloud solutions like Snowflake, including schema design, ETL optimization, cost analysis, and lessons learned from real-world migrations.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Migration</span>
+                        <span class="project-tag">Snowflake</span>
+                        <span class="project-tag">Cloud</span>
+                        <span class="project-tag">ETL</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(12)">
+                        <h3 class="card-title">// Infrastructure as Code for Data Platforms</h3>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(12)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-12">
+                        Best practices for managing data platform infrastructure using Terraform, including multi-environment deployments, security configurations, and automated provisioning of data processing clusters.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Terraform</span>
+                        <span class="project-tag">Infrastructure</span>
+                        <span class="project-tag">DevOps</span>
+                        <span class="project-tag">Automation</span>
                     </div>
                 </div>
             </div>
