@@ -266,10 +266,10 @@
         }
         .link-icon {
             position: absolute;
-            top: 15px;
+            top: 35px;
             right: 15px;
-            color: var(--text-color);
-            opacity: 0.8; 
+            color: var(--secondary-accent);
+            opacity: 0.9; 
             transition: color 0.3s ease, opacity 0.3s ease;
             font-size: 0.9em;
             text-decoration: none;
@@ -278,7 +278,7 @@
             border: 1px solid transparent; 
         }
         .card:hover .link-icon {
-            color: var(--hover-color); 
+            color: var(--secondary-accent); 
             opacity: 1;
             border-color: var(--border-color); 
         }
@@ -1231,8 +1231,8 @@
             <div class="cards-container">
                 <div class="card">
                     <div class="card-header" onclick="toggleDescription(0)">
-                        <h3 class="card-title">// Real-Time Analytics Platform</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Project (Placeholder)">
+                        <h3 class="card-title">// Snowflake Customer DML & Medallion Architecture</h3>
+                        <a href="https://github.com/iamabhaydawar/snowflake_customer_dml_Medallion_architecture" target="_blank" rel="noopener noreferrer" class="link-icon" title="View on GitHub">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
@@ -1241,20 +1241,20 @@
                         <div class="chevron" onclick="event.stopPropagation(); toggleDescription(0)">⟩</div>
                     </div>
                     <p class="card-desc" id="desc-0">
-                        Developed a scalable streaming pipeline using Kafka, Spark Streaming, and Druid to ingest and analyze clickstream data, providing dashboards with sub-second latency.
+                        Customer data pipeline implementing Bronze, Silver, and Gold medallion architecture in Snowflake with DML operations for incremental loads and historical tracking.
                     </p>
                     <div class="project-tags">
-                        <span class="project-tag">Kafka</span>
-                        <span class="project-tag">Spark Streaming</span>
-                        <span class="project-tag">Druid</span>
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">AWS</span>
+                        <span class="project-tag">Snowflake</span>
+                        <span class="project-tag">Medallion</span>
+                        <span class="project-tag">DML</span>
+                        <span class="project-tag">Data Modeling</span>
+                        <span class="project-tag">SQL</span>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-header" onclick="toggleDescription(1)">
-                        <h3 class="card-title">// Cloud Data Warehouse Migration</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Project (Placeholder)">
+                        <h3 class="card-title">// Snowflake News Data Analysis</h3>
+                        <a href="https://github.com/iamabhaydawar/Snowflake_news_data_analysis_project" target="_blank" rel="noopener noreferrer" class="link-icon" title="View on GitHub">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
@@ -1263,20 +1263,19 @@
                         <div class="chevron" onclick="event.stopPropagation(); toggleDescription(1)">⟩</div>
                     </div>
                     <p class="card-desc" id="desc-1">
-                        Led the migration of an on-premise data warehouse to Snowflake, designing new schemas, optimizing ETL jobs (using Airflow & dbt), and reducing query times by 60%.
+                        End-to-end pipeline for ingesting, transforming, and analyzing news data in Snowflake with reporting and analytics capabilities.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">Snowflake</span>
-                        <span class="project-tag">Airflow</span>
-                        <span class="project-tag">dbt</span>
+                        <span class="project-tag">ETL</span>
                         <span class="project-tag">SQL</span>
-                        <span class="project-tag">Data Modeling</span>
+                        <span class="project-tag">Analytics</span>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-header" onclick="toggleDescription(2)">
-                        <h3 class="card-title">// Batch Processing Framework</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Project (Placeholder)">
+                        <h3 class="card-title">// Car Rental Batch Ingestion (Snowflake)</h3>
+                        <a href="https://github.com/iamabhaydawar/Car_Rental_Batch_ingestion_Snowflake_Project" target="_blank" rel="noopener noreferrer" class="link-icon" title="View on GitHub">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
@@ -1285,20 +1284,19 @@
                         <div class="chevron" onclick="event.stopPropagation(); toggleDescription(2)">⟩</div>
                     </div>
                     <p class="card-desc" id="desc-2">
-                        Built a robust batch data processing framework on AWS using S3 Data Lake, PySpark on EMR, and Airflow for orchestration, handling terabytes of daily data.
+                        Batch ETL pipeline for car rental domain data into Snowflake—ingestion, staging, and warehouse layers for analytics and reporting.
                     </p>
                     <div class="project-tags">
-                        <span class="project-tag">PySpark</span>
-                        <span class="project-tag">AWS EMR</span>
-                        <span class="project-tag">S3</span>
-                        <span class="project-tag">Airflow</span>
-                        <span class="project-tag">Scala</span>
+                        <span class="project-tag">Snowflake</span>
+                        <span class="project-tag">Batch ETL</span>
+                        <span class="project-tag">Data Warehouse</span>
+                        <span class="project-tag">SQL</span>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-header" onclick="toggleDescription(3)">
-                        <h3 class="card-title">// Data Quality Monitoring System</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Project (Placeholder)">
+                        <h3 class="card-title">// Healthcare DLT Medallion Pipeline</h3>
+                        <a href="https://github.com/iamabhaydawar/HealthCare_DLT_Medallion_Pipeline" target="_blank" rel="noopener noreferrer" class="link-icon" title="View on GitHub">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
@@ -1307,13 +1305,121 @@
                         <div class="chevron" onclick="event.stopPropagation(); toggleDescription(3)">⟩</div>
                     </div>
                     <p class="card-desc" id="desc-3">
-                        Implemented an automated data quality monitoring system using Great Expectations integrated with Airflow DAGs to validate data pipelines and alert on anomalies.
+                        Delta Live Tables (DLT) pipeline implementing medallion architecture for healthcare data—Bronze to Gold with quality checks and lineage.
                     </p>
                     <div class="project-tags">
-                        <span class="project-tag">Data Quality</span>
-                        <span class="project-tag">Great Expectations</span>
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Airflow</span>
+                        <span class="project-tag">Delta Live Tables</span>
+                        <span class="project-tag">Databricks</span>
+                        <span class="project-tag">Medallion</span>
+                        <span class="project-tag">Healthcare</span>
+                        <span class="project-tag">PySpark</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(4)">
+                        <h3 class="card-title">// Travel Booking SCD2 Data Warehouse</h3>
+                        <a href="https://github.com/iamabhaydawar/Travel_Booking_SCD2_Warehouse_Project" target="_blank" rel="noopener noreferrer" class="link-icon" title="View on GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(4)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-4">
+                        Data warehouse design for travel booking with Type 2 Slowly Changing Dimensions (SCD2) for historical tracking and point-in-time reporting.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">SCD2</span>
+                        <span class="project-tag">Data Warehouse</span>
+                        <span class="project-tag">Data Modeling</span>
+                        <span class="project-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(5)">
+                        <h3 class="card-title">// E-Commerce Event-Driven Databricks Pipeline</h3>
+                        <a href="https://github.com/iamabhaydawar/Ecomm_event_driven_dbx_Pipline" target="_blank" rel="noopener noreferrer" class="link-icon" title="View on GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(5)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-5">
+                        Event-driven data pipeline on Databricks for e-commerce events—streaming ingestion, processing, and analytics with scalable architecture.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Databricks</span>
+                        <span class="project-tag">Event-Driven</span>
+                        <span class="project-tag">Streaming</span>
+                        <span class="project-tag">E-Commerce</span>
+                        <span class="project-tag">PySpark</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(6)">
+                        <h3 class="card-title">// UPI Transactions CDC & Streaming Analytics</h3>
+                        <a href="https://github.com/iamabhaydawar/UPI_Transactions_CDC_Streaming_Analytics" target="_blank" rel="noopener noreferrer" class="link-icon" title="View on GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(6)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-6">
+                        Change Data Capture (CDC) and streaming analytics pipeline for UPI transactions—real-time ingestion, processing, and analytics.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">CDC</span>
+                        <span class="project-tag">Streaming</span>
+                        <span class="project-tag">Real-time</span>
+                        <span class="project-tag">Analytics</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(7)">
+                        <h3 class="card-title">// Electron System Resource Monitor</h3>
+                        <a href="https://github.com/iamabhaydawar/electron_app" target="_blank" rel="noopener noreferrer" class="link-icon" title="View on GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(7)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-7">
+                        Cross-platform desktop app for real-time system resource monitoring (CPU, RAM, Storage) built with Electron, React, and TypeScript—featuring interactive Recharts, system tray, and builds for macOS, Windows, and Linux.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Electron</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">TypeScript</span>
+                        <span class="project-tag">Vite</span>
+                        <span class="project-tag">Recharts</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(8)">
+                        <h3 class="card-title">// Self-Driving Car NN (FSD Simulation)</h3>
+                        <a href="https://github.com/iamabhaydawar/SelfDrivingCar-NN" target="_blank" rel="noopener noreferrer" class="link-icon" title="View on GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(8)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-8">
+                        Full Self-Driving (FSD) simulation using neural networks implemented from scratch in JavaScript—sensors, road/car physics, and training loop with a live demo at self-driving-car-nn.vercel.app.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Neural Networks</span>
+                        <span class="project-tag">Machine Learning</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">Simulation</span>
                     </div>
                 </div>
             </div>
@@ -1325,7 +1431,7 @@
             <div class="section-title">Blogs</div>
             <div class="cards-container">
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(7)">
+                    <div class="card-header" onclick="toggleDescription(9)">
                         <h3 class="card-title">// Optimizing Apache Spark Jobs: A Complete Guide</h3>
                         <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1333,9 +1439,9 @@
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(7)">⟩</div>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(9)">⟩</div>
                     </div>
-                    <p class="card-desc" id="desc-7">
+                    <p class="card-desc" id="desc-9">
                         A comprehensive 5-part series covering advanced techniques for performance tuning Apache Spark applications, including partitioning strategies, memory management, and optimization best practices for production environments.
                     </p>
                     <div class="project-tags">
@@ -1346,7 +1452,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(8)">
+                    <div class="card-header" onclick="toggleDescription(10)">
                         <h3 class="card-title">// Building Modern Data Lakes with Delta Lake</h3>
                         <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1354,9 +1460,9 @@
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(8)">⟩</div>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(10)">⟩</div>
                     </div>
-                    <p class="card-desc" id="desc-8">
+                    <p class="card-desc" id="desc-10">
                         Deep dive into implementing ACID transactions, time travel, and schema evolution using Delta Lake on AWS. Includes practical examples and performance comparisons with traditional data lake architectures.
                     </p>
                     <div class="project-tags">
@@ -1367,7 +1473,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(9)">
+                    <div class="card-header" onclick="toggleDescription(11)">
                         <h3 class="card-title">// Real-Time Streaming with Apache Kafka</h3>
                         <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1375,9 +1481,9 @@
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(9)">⟩</div>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(11)">⟩</div>
                     </div>
-                    <p class="card-desc" id="desc-9">
+                    <p class="card-desc" id="desc-11">
                         Step-by-step guide to building scalable real-time data pipelines using Apache Kafka, including producer/consumer patterns, partitioning strategies, and monitoring best practices for high-throughput systems.
                     </p>
                     <div class="project-tags">
@@ -1388,7 +1494,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(10)">
+                    <div class="card-header" onclick="toggleDescription(12)">
                         <h3 class="card-title">// Data Quality at Scale with Great Expectations</h3>
                         <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1396,9 +1502,9 @@
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(10)">⟩</div>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(12)">⟩</div>
                     </div>
-                    <p class="card-desc" id="desc-10">
+                    <p class="card-desc" id="desc-12">
                         Implementing automated data quality monitoring using Great Expectations framework, including custom expectation development, integration with Airflow DAGs, and alerting strategies for data anomalies.
                     </p>
                     <div class="project-tags">
@@ -1409,7 +1515,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(11)">
+                    <div class="card-header" onclick="toggleDescription(13)">
                         <h3 class="card-title">// Cloud Data Warehouse Migration Strategies</h3>
                         <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1417,9 +1523,9 @@
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(11)">⟩</div>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(13)">⟩</div>
                     </div>
-                    <p class="card-desc" id="desc-11">
+                    <p class="card-desc" id="desc-13">
                         Comprehensive guide to migrating from on-premise data warehouses to cloud solutions like Snowflake, including schema design, ETL optimization, cost analysis, and lessons learned from real-world migrations.
                     </p>
                     <div class="project-tags">
@@ -1430,7 +1536,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(12)">
+                    <div class="card-header" onclick="toggleDescription(14)">
                         <h3 class="card-title">// Infrastructure as Code for Data Platforms</h3>
                         <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1438,9 +1544,9 @@
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(12)">⟩</div>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(14)">⟩</div>
                     </div>
-                    <p class="card-desc" id="desc-12">
+                    <p class="card-desc" id="desc-14">
                         Best practices for managing data platform infrastructure using Terraform, including multi-environment deployments, security configurations, and automated provisioning of data processing clusters.
                     </p>
                     <div class="project-tags">
@@ -1459,7 +1565,7 @@
             <div class="section-title">Contributions</div>
             <div class="cards-container">
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(13)">
+                    <div class="card-header" onclick="toggleDescription(15)">
                         <h3 class="card-title">// Apache Airflow Provider Enhancement</h3>
                         <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Contribution (Placeholder)">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1467,9 +1573,9 @@
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(13)">⟩</div>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(15)">⟩</div>
                     </div>
-                    <p class="card-desc" id="desc-13">
+                    <p class="card-desc" id="desc-15">
                         Contributed code to enhance the AWS provider for Apache Airflow, adding new operators and improving existing sensor logic. Merged into main branch (v2.x).
                     </p>
                     <div class="project-tags">
@@ -1480,7 +1586,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(14)">
+                    <div class="card-header" onclick="toggleDescription(16)">
                         <h3 class="card-title">// Blog Series: Optimizing Spark Jobs</h3>
                         <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Contribution (Placeholder)">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1488,9 +1594,9 @@
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(14)">⟩</div>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(16)">⟩</div>
                     </div>
-                    <p class="card-desc" id="desc-14">
+                    <p class="card-desc" id="desc-16">
                         Authored a 5-part blog series detailing techniques for performance tuning Apache Spark applications, covering partitioning, caching, and memory management.
                     </p>
                     <div class="project-tags">
@@ -1500,7 +1606,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(15)">
+                    <div class="card-header" onclick="toggleDescription(17)">
                         <h3 class="card-title">// Talk: Modern Data Lake Architectures</h3>
                         <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Contribution (Placeholder)">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1508,9 +1614,9 @@
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(15)">⟩</div>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(17)">⟩</div>
                     </div>
-                    <p class="card-desc" id="desc-15">
+                    <p class="card-desc" id="desc-17">
                         Presented at Local Data Meetup (2024). Discussed modern data lake design patterns, comparing Delta Lake, Iceberg, and Hudi, and their integration with cloud services.
                     </p>
                     <div class="project-tags">
