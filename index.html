@@ -79,6 +79,25 @@
             color: var(--hover-color);
             border-color: var(--hover-color);
         }
+        .nav a.nav-external {
+            margin: 0.25rem 0.5rem;
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 6px 12px;
+            border-radius: 9999px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+        }
+        .nav a.nav-external:hover {
+            color: var(--hover-color);
+            border-color: var(--border-color);
+            transform: scale(1.05);
+        }
+        .nav .nav-arrow {
+            color: var(--secondary-accent);
+            margin-left: 2px;
+        }
         .terminal-prompt {
             display: flex;
             align-items: center;
@@ -137,6 +156,18 @@
         .content-box:hover {
             transform: translateY(-3px); 
             box-shadow: 0 3px 15px rgba(0, 216, 255, 0.3); 
+        }
+        .external-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+        }
+        .external-link:hover {
+            color: var(--secondary-accent);
+            text-decoration: underline;
         }
         .profile {
             display: flex;
@@ -1022,7 +1053,7 @@
             <a href="#expertise" class="nav-link" data-section="expertise">ls ./expertise</a>
             <a href="#projects" class="nav-link" data-section="projects">ls ./projects</a>
             <a href="#blogs" class="nav-link" data-section="blogs">ls ./blogs</a>
-            <a href="#contributions" class="nav-link" data-section="contributions">ls ./contributions</a>
+            <a href="https://deepwiki.com/iamabhaydawar" target="_blank" rel="noopener noreferrer" class="nav-external">ls ./deepwiki <span class="nav-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
         </div>
         <div id="home" class="section active">
             <div class="profile">
@@ -1569,75 +1600,6 @@
                         <span class="project-tag">Infrastructure</span>
                         <span class="project-tag">DevOps</span>
                         <span class="project-tag">Automation</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="contributions" class="section">
-            <div class="terminal-prompt">
-                <span class="prompt-user">abhay@portfolio</span><span class="prompt-symbol">:$ ~ </span><span class="prompt-command">git log --author="Abhay"</span>
-            </div>
-            <div class="section-title">Contributions</div>
-            <div class="cards-container">
-                <div class="card">
-                    <div class="card-header" onclick="toggleDescription(15)">
-                        <h3 class="card-title">// Apache Airflow Provider Enhancement</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Contribution (Placeholder)">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(15)">⟩</div>
-                    </div>
-                    <p class="card-desc" id="desc-15">
-                        Contributed code to enhance the AWS provider for Apache Airflow, adding new operators and improving existing sensor logic. Merged into main branch (v2.x).
-                    </p>
-                    <div class="project-tags">
-                        <span class="project-tag">Open Source</span>
-                        <span class="project-tag">Airflow</span>
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">AWS</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" onclick="toggleDescription(16)">
-                        <h3 class="card-title">// Blog Series: Optimizing Spark Jobs</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Contribution (Placeholder)">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(16)">⟩</div>
-                    </div>
-                    <p class="card-desc" id="desc-16">
-                        Authored a 5-part blog series detailing techniques for performance tuning Apache Spark applications, covering partitioning, caching, and memory management.
-                    </p>
-                    <div class="project-tags">
-                        <span class="project-tag">Writing</span>
-                        <span class="project-tag">Spark</span>
-                        <span class="project-tag">Tuning</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" onclick="toggleDescription(17)">
-                        <h3 class="card-title">// Talk: Modern Data Lake Architectures</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Contribution (Placeholder)">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(17)">⟩</div>
-                    </div>
-                    <p class="card-desc" id="desc-17">
-                        Presented at Local Data Meetup (2024). Discussed modern data lake design patterns, comparing Delta Lake, Iceberg, and Hudi, and their integration with cloud services.
-                    </p>
-                    <div class="project-tags">
-                        <span class="project-tag">Speaking</span>
-                        <span class="project-tag">Data Lake</span>
-                        <span class="project-tag">Architecture</span>
                     </div>
                 </div>
             </div>
