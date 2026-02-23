@@ -379,6 +379,21 @@
         .chevron.open {
             transform: rotate(90deg);
         }
+        .card-title-link {
+            color: inherit;
+            text-decoration: none;
+        }
+        .card-title-link:hover {
+            color: var(--accent-color);
+        }
+        a.chevron {
+            text-decoration: none;
+            color: var(--prompt-color);
+            display: inline-flex;
+        }
+        a.chevron:hover {
+            color: var(--hover-color);
+        }
         .boot-sequence {
             position: fixed;
             top: 0;
@@ -1431,18 +1446,18 @@
             <div class="section-title">Blogs</div>
             <div class="cards-container">
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(9)">
-                        <h3 class="card-title">// Optimizing Apache Spark Jobs: A Complete Guide</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
+                    <div class="card-header">
+                        <h3 class="card-title"><a href="blogs/optimizing-spark-jobs.html" class="card-title-link">// Optimizing Apache Spark Jobs: A Complete Guide</a></h3>
+                        <a href="blogs/optimizing-spark-jobs.html" class="link-icon" title="Read full post">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(9)">⟩</div>
+                        <a href="blogs/optimizing-spark-jobs.html" class="chevron" title="Read full post">⟩</a>
                     </div>
                     <p class="card-desc" id="desc-9">
-                        A comprehensive 5-part series covering advanced techniques for performance tuning Apache Spark applications, including partitioning strategies, memory management, and optimization best practices for production environments.
+                        Why partition skew can turn a 4-hour job into a 45-minute one—and how to find and fix it. Plus when to cache (and when not to), and how to read the Spark UI like a pro.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">Apache Spark</span>
@@ -1452,18 +1467,18 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(10)">
-                        <h3 class="card-title">// Building Modern Data Lakes with Delta Lake</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
+                    <div class="card-header">
+                        <h3 class="card-title"><a href="blogs/delta-lake-modern-data-lakes.html" class="card-title-link">// Building Modern Data Lakes with Delta Lake</a></h3>
+                        <a href="blogs/delta-lake-modern-data-lakes.html" class="link-icon" title="Read full post">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(10)">⟩</div>
+                        <a href="blogs/delta-lake-modern-data-lakes.html" class="chevron" title="Read full post">⟩</a>
                     </div>
                     <p class="card-desc" id="desc-10">
-                        Deep dive into implementing ACID transactions, time travel, and schema evolution using Delta Lake on AWS. Includes practical examples and performance comparisons with traditional data lake architectures.
+                        ACID on object storage, time travel for 2 a.m. debugging, and schema evolution without breaking pipelines. When to choose Delta over raw Parquet—and when not to.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">Delta Lake</span>
@@ -1473,18 +1488,18 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(11)">
-                        <h3 class="card-title">// Real-Time Streaming with Apache Kafka</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
+                    <div class="card-header">
+                        <h3 class="card-title"><a href="blogs/real-time-streaming-kafka.html" class="card-title-link">// Real-Time Streaming with Apache Kafka</a></h3>
+                        <a href="blogs/real-time-streaming-kafka.html" class="link-icon" title="Read full post">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(11)">⟩</div>
+                        <a href="blogs/real-time-streaming-kafka.html" class="chevron" title="Read full post">⟩</a>
                     </div>
                     <p class="card-desc" id="desc-11">
-                        Step-by-step guide to building scalable real-time data pipelines using Apache Kafka, including producer/consumer patterns, partitioning strategies, and monitoring best practices for high-throughput systems.
+                        How partition keys drive both ordering and scale, exactly-once semantics without the headache, and why consumer lag is your best early-warning signal. Tune first, then scale.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">Apache Kafka</span>
@@ -1494,18 +1509,18 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(12)">
-                        <h3 class="card-title">// Data Quality at Scale with Great Expectations</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
+                    <div class="card-header">
+                        <h3 class="card-title"><a href="blogs/data-quality-great-expectations.html" class="card-title-link">// Data Quality at Scale with Great Expectations</a></h3>
+                        <a href="blogs/data-quality-great-expectations.html" class="link-icon" title="Read full post">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(12)">⟩</div>
+                        <a href="blogs/data-quality-great-expectations.html" class="chevron" title="Read full post">⟩</a>
                     </div>
                     <p class="card-desc" id="desc-12">
-                        Implementing automated data quality monitoring using Great Expectations framework, including custom expectation development, integration with Airflow DAGs, and alerting strategies for data anomalies.
+                        Turn data quality into executable checks that run in your pipeline. Custom expectations that matter, integration with DAGs, and how to avoid alert fatigue so people actually act on failures.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">Data Quality</span>
@@ -1515,18 +1530,18 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(13)">
-                        <h3 class="card-title">// Cloud Data Warehouse Migration Strategies</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
+                    <div class="card-header">
+                        <h3 class="card-title"><a href="blogs/cloud-data-warehouse-migration.html" class="card-title-link">// Cloud Data Warehouse Migration Strategies</a></h3>
+                        <a href="blogs/cloud-data-warehouse-migration.html" class="link-icon" title="Read full post">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(13)">⟩</div>
+                        <a href="blogs/cloud-data-warehouse-migration.html" class="chevron" title="Read full post">⟩</a>
                     </div>
                     <p class="card-desc" id="desc-13">
-                        Comprehensive guide to migrating from on-premise data warehouses to cloud solutions like Snowflake, including schema design, ETL optimization, cost analysis, and lessons learned from real-world migrations.
+                        Lift-and-shift vs. redesign, where cost surprises really come from, and a phased cutover plan that includes validation and rollback. Use the move as a chance to fix technical debt.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">Migration</span>
@@ -1536,18 +1551,18 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" onclick="toggleDescription(14)">
-                        <h3 class="card-title">// Infrastructure as Code for Data Platforms</h3>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="link-icon" title="Read Blog Post (Placeholder)">
+                    <div class="card-header">
+                        <h3 class="card-title"><a href="blogs/infrastructure-as-code-data-platforms.html" class="card-title-link">// Infrastructure as Code for Data Platforms</a></h3>
+                        <a href="blogs/infrastructure-as-code-data-platforms.html" class="link-icon" title="Read full post">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(14)">⟩</div>
+                        <a href="blogs/infrastructure-as-code-data-platforms.html" class="chevron" title="Read full post">⟩</a>
                     </div>
                     <p class="card-desc" id="desc-14">
-                        Best practices for managing data platform infrastructure using Terraform, including multi-environment deployments, security configurations, and automated provisioning of data processing clusters.
+                        Repeatable, versioned infra for clusters and buckets; secrets in the vault, not in code; and how to catch drift before it becomes a fire. Same code for dev, staging, and prod.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">Terraform</span>
@@ -1801,7 +1816,7 @@
             // Project Description Toggle Functionality (from Nisha's script)
             function toggleDescription(index) {
                 const description = document.getElementById(`desc-${index}`);
-                // Find the chevron within the same card as the description
+                if (!description) return;
                 const card = description.closest('.card');
                 const chevron = card ? card.querySelector('.chevron') : null;
                 if (description && chevron) {

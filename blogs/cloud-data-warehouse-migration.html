@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Data Warehouse Migration Strategies — Abhay Dawar</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #d4d4d4;
+            --accent-color: #fb7185cc;
+            --secondary-accent: #4ade80;
+            --border-color: #404040;
+            --prompt-color: #fb7185;
+            --title-color: #fb7185;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inconsolata', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 2rem 1.25rem;
+        }
+        .container { max-width: 52rem; margin: 0 auto; width: 100%; }
+        .nav {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nav a {
+            color: var(--secondary-accent);
+            text-decoration: none;
+            font-size: 0.95em;
+        }
+        .nav a:hover { color: var(--accent-color); }
+        .blog-header { margin-bottom: 1.5rem; }
+        .blog-title {
+            font-size: 1.75rem;
+            color: var(--title-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .blog-meta { font-size: 0.85em; color: var(--text-color); opacity: 0.9; }
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        .blog-tag {
+            background: rgba(251, 113, 133, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(251, 113, 133, 0.3);
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+        .blog-body { margin-top: 1.5rem; }
+        .blog-body p {
+            margin-bottom: 1.1rem;
+            font-size: 1em;
+            color: var(--text-color);
+        }
+        .blog-takeaway {
+            margin-top: 1.5rem;
+            padding: 1rem 1.25rem;
+            background: rgba(251, 113, 133, 0.08);
+            border: 1px solid rgba(251, 113, 133, 0.25);
+            border-radius: 6px;
+            font-size: 0.95em;
+            color: var(--secondary-accent);
+        }
+        .blog-takeaway strong { color: var(--accent-color); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="../index.html#blogs">← Back to portfolio</a>
+        </nav>
+        <article>
+            <header class="blog-header">
+                <h1 class="blog-title">// Cloud Data Warehouse Migration Strategies</h1>
+                <p class="blog-meta">Migration · Cloud · ETL</p>
+                <div class="blog-tags">
+                    <span class="blog-tag">Migration</span>
+                    <span class="blog-tag">Snowflake</span>
+                    <span class="blog-tag">Cloud</span>
+                    <span class="blog-tag">ETL</span>
+                </div>
+            </header>
+            <div class="blog-body">
+                <p>Migration is rarely a straight lift-and-shift. Schema and naming often need a cleanup pass; use the move as a chance to fix technical debt and align with cloud-native patterns (e.g. separate compute and storage, use external stages).</p>
+                <p>Cost surprises usually come from full table scans, unnecessary clones, or under-tuned warehouses. Use query history and resource monitors early; set up budgets and alerts before go-live.</p>
+                <p>Testing and cutover need a clear plan: data validation (row counts, checksums, sample queries), parallel run periods, and a rollback path. Migrate in phases (schema, then history, then cutover) to reduce risk.</p>
+                <p class="blog-takeaway"><strong>→ Key takeaway:</strong> Treat migration as a redesign opportunity. Validate data and cost early, and cut over in phases with a rollback plan.</p>
+            </div>
+        </article>
+    </div>
+</body>
+</html>

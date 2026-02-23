@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Modern Data Lakes with Delta Lake — Abhay Dawar</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #d4d4d4;
+            --accent-color: #fb7185cc;
+            --secondary-accent: #4ade80;
+            --border-color: #404040;
+            --prompt-color: #fb7185;
+            --title-color: #fb7185;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inconsolata', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 2rem 1.25rem;
+        }
+        .container { max-width: 52rem; margin: 0 auto; width: 100%; }
+        .nav {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nav a {
+            color: var(--secondary-accent);
+            text-decoration: none;
+            font-size: 0.95em;
+        }
+        .nav a:hover { color: var(--accent-color); }
+        .blog-header { margin-bottom: 1.5rem; }
+        .blog-title {
+            font-size: 1.75rem;
+            color: var(--title-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .blog-meta { font-size: 0.85em; color: var(--text-color); opacity: 0.9; }
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        .blog-tag {
+            background: rgba(251, 113, 133, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(251, 113, 133, 0.3);
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+        .blog-body { margin-top: 1.5rem; }
+        .blog-body p {
+            margin-bottom: 1.1rem;
+            font-size: 1em;
+            color: var(--text-color);
+        }
+        .blog-takeaway {
+            margin-top: 1.5rem;
+            padding: 1rem 1.25rem;
+            background: rgba(251, 113, 133, 0.08);
+            border: 1px solid rgba(251, 113, 133, 0.25);
+            border-radius: 6px;
+            font-size: 0.95em;
+            color: var(--secondary-accent);
+        }
+        .blog-takeaway strong { color: var(--accent-color); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="../index.html#blogs">← Back to portfolio</a>
+        </nav>
+        <article>
+            <header class="blog-header">
+                <h1 class="blog-title">// Building Modern Data Lakes with Delta Lake</h1>
+                <p class="blog-meta">Data Lakes · ACID · AWS</p>
+                <div class="blog-tags">
+                    <span class="blog-tag">Delta Lake</span>
+                    <span class="blog-tag">Data Lake</span>
+                    <span class="blog-tag">AWS</span>
+                    <span class="blog-tag">ACID</span>
+                </div>
+            </header>
+            <div class="blog-body">
+                <p>Delta Lake brings ACID transactions to object storage, so you can run concurrent writes and reliable updates without turning your lake into a mess of small files. Time travel isn’t just a feature—it’s a debugging and reprocessing superpower when something goes wrong at 2 a.m.</p>
+                <p>Schema evolution lets you add columns or change types without breaking downstream jobs. Use mergeSchema on write and enable it in your table properties so new fields don’t require a full migration.</p>
+                <p>Compared to raw Parquet, Delta adds metadata and optional compaction. The tradeoff is worth it when you need updates, deletes, or reliable streaming sinks. For append-only, read-heavy tables, plain Parquet can still be simpler.</p>
+                <p class="blog-takeaway"><strong>→ Key takeaway:</strong> Use Delta when you need updates, deletes, or streaming; use time travel for debugging and one-off reprocessing.</p>
+            </div>
+        </article>
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure as Code for Data Platforms — Abhay Dawar</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #d4d4d4;
+            --accent-color: #fb7185cc;
+            --secondary-accent: #4ade80;
+            --border-color: #404040;
+            --prompt-color: #fb7185;
+            --title-color: #fb7185;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inconsolata', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 2rem 1.25rem;
+        }
+        .container { max-width: 52rem; margin: 0 auto; width: 100%; }
+        .nav {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nav a {
+            color: var(--secondary-accent);
+            text-decoration: none;
+            font-size: 0.95em;
+        }
+        .nav a:hover { color: var(--accent-color); }
+        .blog-header { margin-bottom: 1.5rem; }
+        .blog-title {
+            font-size: 1.75rem;
+            color: var(--title-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .blog-meta { font-size: 0.85em; color: var(--text-color); opacity: 0.9; }
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        .blog-tag {
+            background: rgba(251, 113, 133, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(251, 113, 133, 0.3);
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+        .blog-body { margin-top: 1.5rem; }
+        .blog-body p {
+            margin-bottom: 1.1rem;
+            font-size: 1em;
+            color: var(--text-color);
+        }
+        .blog-takeaway {
+            margin-top: 1.5rem;
+            padding: 1rem 1.25rem;
+            background: rgba(251, 113, 133, 0.08);
+            border: 1px solid rgba(251, 113, 133, 0.25);
+            border-radius: 6px;
+            font-size: 0.95em;
+            color: var(--secondary-accent);
+        }
+        .blog-takeaway strong { color: var(--accent-color); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="../index.html#blogs">← Back to portfolio</a>
+        </nav>
+        <article>
+            <header class="blog-header">
+                <h1 class="blog-title">// Infrastructure as Code for Data Platforms</h1>
+                <p class="blog-meta">Terraform · DevOps · Automation</p>
+                <div class="blog-tags">
+                    <span class="blog-tag">Terraform</span>
+                    <span class="blog-tag">Infrastructure</span>
+                    <span class="blog-tag">DevOps</span>
+                    <span class="blog-tag">Automation</span>
+                </div>
+            </header>
+            <div class="blog-body">
+                <p>Terraform (or Pulumi, CloudFormation) gives you repeatable, versioned infrastructure for clusters, buckets, and pipelines. The same code can provision dev, staging, and prod so environments stay in sync and drift is visible in diffs.</p>
+                <p>Secrets and credentials should live in a vault or your CI secrets store; never hardcode. Use Terraform data sources or external systems to inject them at apply time, and restrict who can run apply on prod.</p>
+                <p>Drift happens when someone changes resources in the console. Use regular plan/apply cycles and, where possible, restrict manual changes so Terraform remains the source of truth. Tag everything so you can trace cost and ownership.</p>
+                <p class="blog-takeaway"><strong>→ Key takeaway:</strong> IaC reduces drift and makes environments reproducible. Keep secrets out of code and run plan regularly to catch manual changes.</p>
+            </div>
+        </article>
+    </div>
+</body>
+</html>
