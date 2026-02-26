@@ -1109,6 +1109,48 @@
                 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             }
         }
+
+        /* Light theme contrast overrides */
+        body.light-theme .content-box {
+            background-color: #ffffff;
+        }
+        body.light-theme .linux-terminal {
+            box-shadow: 0 0 18px rgba(30, 41, 59, 0.12);
+        }
+        body.light-theme .linux-terminal-header {
+            background-color: #f8fafc;
+        }
+        body.light-theme .linux-nav-item.active {
+            background-color: rgba(190, 24, 93, 0.14);
+        }
+        body.light-theme .location-map .leaflet-tile-pane {
+            filter: brightness(1.05) contrast(1.02);
+        }
+        body.light-theme .sub-section-title {
+            color: #be185d;
+        }
+        body.light-theme .skill-tag {
+            color: #9f1239;
+            background-color: rgba(190, 24, 93, 0.08);
+            border-color: rgba(190, 24, 93, 0.35);
+            font-weight: 500;
+        }
+        body.light-theme .skill-tag:hover {
+            color: #831843;
+            background-color: rgba(190, 24, 93, 0.14);
+            border-color: #be185d;
+        }
+        body.light-theme .project-tag {
+            color: #9f1239;
+            background-color: rgba(190, 24, 93, 0.08);
+            border-color: rgba(190, 24, 93, 0.35);
+            font-weight: 500;
+        }
+        body.light-theme .project-tag:hover {
+            color: #831843;
+            background-color: rgba(190, 24, 93, 0.14);
+            border-color: #be185d;
+        }
     </style>
 </head>
 <body>
@@ -1987,7 +2029,14 @@
                     // Switch to dark theme
                     document.documentElement.style.setProperty('--bg-color', '#0a0a0a');
                     document.documentElement.style.setProperty('--text-color', '#d4d4d4');
+                    document.documentElement.style.setProperty('--accent-color', '#fb7185cc');
+                    document.documentElement.style.setProperty('--secondary-accent', '#4ade80');
                     document.documentElement.style.setProperty('--border-color', '#404040');
+                    document.documentElement.style.setProperty('--hover-color', '#a1a1a1');
+                    document.documentElement.style.setProperty('--prompt-color', '#fb7185');
+                    document.documentElement.style.setProperty('--title-color', '#fb7185');
+                    document.documentElement.style.setProperty('--bullet-color', '#fb7185');
+                    document.body.classList.remove('light-theme');
                     themeText.textContent = 'light mode';
                     
                     // Update theme icon to sun
@@ -2004,9 +2053,16 @@
                     `;
                 } else {
                     // Switch to light theme
-                    document.documentElement.style.setProperty('--bg-color', '#f5f5f5');
-                    document.documentElement.style.setProperty('--text-color', '#333');
-                    document.documentElement.style.setProperty('--border-color', '#d4d4d4');
+                    document.documentElement.style.setProperty('--bg-color', '#f8fafc');
+                    document.documentElement.style.setProperty('--text-color', '#111827');
+                    document.documentElement.style.setProperty('--accent-color', '#be185d');
+                    document.documentElement.style.setProperty('--secondary-accent', '#166534');
+                    document.documentElement.style.setProperty('--border-color', '#cbd5e1');
+                    document.documentElement.style.setProperty('--hover-color', '#334155');
+                    document.documentElement.style.setProperty('--prompt-color', '#be185d');
+                    document.documentElement.style.setProperty('--title-color', '#be185d');
+                    document.documentElement.style.setProperty('--bullet-color', '#be185d');
+                    document.body.classList.add('light-theme');
                     themeText.textContent = 'dark mode';
                     
                     // Update theme icon to moon
