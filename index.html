@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700&family=Comfortaa:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     <style>
         :root {
             --bg-color: #0a0a0a; 
@@ -830,6 +831,74 @@
                 flex-basis: 100%; 
                 margin-top: 1rem;
             }
+            .location-map-container {
+                width: 100%;
+            }
+            .location-map {
+                height: 180px;
+            }
+        }
+        .location-map-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0;
+            overflow: hidden;
+        }
+        .location-map-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1000;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .location-map {
+            width: 100%;
+            height: 220px;
+            background: var(--bg-color);
+            z-index: 1;
+        }
+        .location-map .leaflet-tile-pane { filter: brightness(0.7) contrast(1.1); }
+        .location-marker {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            margin-left: -12px;
+            margin-top: -12px;
+        }
+        .location-marker-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            margin-left: -5px;
+            margin-top: -5px;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        .location-marker-ring {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: location-pulse 1.5s ease-out infinite;
+            z-index: 1;
+        }
+        @keyframes location-pulse {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(2); opacity: 0; }
         }
         @media (min-width: 640px) {
             .typing-animation {
@@ -1202,6 +1271,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="location-map-container">
+                <span class="location-map-label">currently in</span>
+                <div id="location-map" class="location-map"></div>
             </div>
         </div>
         <div id="expertise" class="section">
@@ -1613,6 +1686,7 @@
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
         // Wait for the DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
@@ -1621,6 +1695,25 @@
             const sections = document.querySelectorAll('.section');
             const bootSequence = document.getElementById('boot-sequence');
             const homeAboutContainer = document.getElementById('home-about');
+            // Initialize "currently in" location map (Leaflet)
+            const locationMapEl = document.getElementById('location-map');
+            if (locationMapEl && typeof L !== 'undefined') {
+                const vancouver = [49.282, -123.12];
+                const map = L.map('location-map', { zoomControl: false, attributionControl: false }).setView(vancouver, 11);
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                    subdomains: 'abcd',
+                    maxZoom: 19
+                }).addTo(map);
+                const markerHtml = '<div class="location-marker"><span class="location-marker-dot"></span><span class="location-marker-ring"></span></div>';
+                const locationIcon = L.divIcon({
+                    html: markerHtml,
+                    className: '',
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 12]
+                });
+                L.marker(vancouver, { icon: locationIcon }).addTo(map);
+            }
             // Content for the 'about' section terminal lines
             const aboutLines = [
                 "building scalable data pipelines (TBs/day)",
