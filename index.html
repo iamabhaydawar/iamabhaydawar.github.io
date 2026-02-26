@@ -2020,10 +2020,7 @@
                 themeToggle.addEventListener('click', toggleTheme);
             }
 
-            // Initialize theme state
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-                toggleTheme(); // Start with light theme if user prefers it
-            }
+            // Default to dark mode (no system preference override)
         });
     </script>
 </body>
