@@ -296,6 +296,12 @@
             color: var(--hover-color);
             border-color: var(--accent-color);
         }
+        .project-group {
+            margin-bottom: 2.5rem;
+        }
+        .project-group:last-child {
+            margin-bottom: 0;
+        }
         .link-icon {
             position: absolute;
             top: 35px;
@@ -1389,7 +1395,60 @@
                 <span class="prompt-user">abhay@portfolio</span><span class="prompt-symbol">:$ ~ </span><span class="prompt-command">ls -l /var/log/projects/</span>
             </div>
             <div class="section-title">Projects</div>
-            <div class="cards-container">
+            <div class="project-group">
+                <h3 class="sub-section-title"><span class="prompt-symbol">&gt;</span> [Agentic Engineering Projects]</h3>
+                <div class="cards-container">
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(15)">
+                        <h3 class="card-title">// DevRadar — Career Intelligence Platform</h3>
+                        <a href="https://github.com/iamabhaydawar/devradar" target="_blank" rel="noopener noreferrer" class="link-icon" title="View on GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(15)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-15">
+                        AI-powered career intelligence for developers—maps your stack into a live knowledge graph, matches you against startups, surfaces hackathons, runs skill gap analysis, and grounds chat in a personal wiki. HydraDB persists everything across sessions. Built for WikiThon 2026. Live at devradar-seven.vercel.app.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">HydraDB</span>
+                        <span class="project-tag">Groq</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">vis-network</span>
+                        <span class="project-tag">AI</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(16)">
+                        <h3 class="card-title">// MnemOS — Agentic OS with Memory</h3>
+                        <a href="https://github.com/iamabhaydawar/MnemOS" target="_blank" rel="noopener noreferrer" class="link-icon" title="View on GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(16)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-16">
+                        Visual workflow builder for desktop AI agents in a containerized virtual desktop. Agents remember across sessions, recover from failures, and adapt strategy via Remember, Recall, Recover, and Plan nodes—powered by HydraDB, Groq, and Playwright browser automation. Built for the Agents Under Pressure hackathon.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">FastAPI</span>
+                        <span class="project-tag">HydraDB</span>
+                        <span class="project-tag">Playwright</span>
+                        <span class="project-tag">Docker</span>
+                        <span class="project-tag">AI Agents</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="project-group">
+                <h3 class="sub-section-title"><span class="prompt-symbol">&gt;</span> [Data Engineering Projects]</h3>
+                <div class="cards-container">
                 <div class="card">
                     <div class="card-header" onclick="toggleDescription(0)">
                         <h3 class="card-title">// Snowflake Customer DML & Medallion Architecture</h3>
@@ -1540,6 +1599,38 @@
                         <span class="project-tag">Analytics</span>
                     </div>
                 </div>
+                </div>
+            </div>
+            <div class="project-group">
+                <h3 class="sub-section-title"><span class="prompt-symbol">&gt;</span> [Backend Engineering Projects]</h3>
+                <div class="cards-container">
+                <div class="card">
+                    <div class="card-header" onclick="toggleDescription(17)">
+                        <h3 class="card-title">// Daxita — Financial Transaction Analyzer</h3>
+                        <a href="https://github.com/iamabhaydawar/daxita-backend" target="_blank" rel="noopener noreferrer" class="link-icon" title="View on GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <div class="chevron" onclick="event.stopPropagation(); toggleDescription(17)">⟩</div>
+                    </div>
+                    <p class="card-desc" id="desc-17">
+                        FastAPI microservice that accepts financial transactions, computes cash-flow summaries, evaluates risk flags (negative net flow, large outflows, NSF risk), and returns a readiness classification—strong, structured, or requires clarification. Built for the Daxita Backend Engineering Challenge, containerized with Docker.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">FastAPI</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Pydantic</span>
+                        <span class="project-tag">Docker</span>
+                        <span class="project-tag">REST API</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="project-group">
+                <h3 class="sub-section-title"><span class="prompt-symbol">&gt;</span> [Experimental Projects]</h3>
+                <div class="cards-container">
                 <div class="card">
                     <div class="card-header" onclick="toggleDescription(7)">
                         <h3 class="card-title">// Electron System Resource Monitor</h3>
@@ -1582,6 +1673,7 @@
                         <span class="project-tag">JavaScript</span>
                         <span class="project-tag">Simulation</span>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
